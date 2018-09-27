@@ -697,6 +697,9 @@ function propertyType(property) {
       if (property.enum && property.enum.length > 0) {
         return '\'' + property.enum.join('\' | \'') + '\'';
       }
+      if (property.format == 'date-time') {
+        return 'Date';
+      }
       return 'string';
     case 'array':
       return 'Array<' + propertyType(property.items) + '>';
